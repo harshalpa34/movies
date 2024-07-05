@@ -118,7 +118,7 @@ const ContentList = ({ genre }: props) => {
           <Text style={contentStyles.year}>{item}</Text>
           <View style={contentStyles.contentWrapper}>
             {movies[item].map((movie) => (
-              <MovieCard movie={movie} />
+              <MovieCard movie={movie} key={movie.id} />
             ))}
           </View>
         </View>
