@@ -29,7 +29,7 @@
       -you will get the list of android emulator which you have download from extension click on that
       - press a in ternimal and it will open the app in emulator
    ```
- ###### sorry for the logo its little blurry.  
+#### sorry for the logo its little blurry.  
 
 ## Features I have Implimented   
    - Layout And UI
