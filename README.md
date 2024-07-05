@@ -1,7 +1,9 @@
-# Welcome to your Expo app 👋
+# Welcome to Movie Flex (Fancode)👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
+## Tech Stack Used
+   -React Native
+   -Typescript
+   
 ## Get started
 
 1. Install dependencies
@@ -13,38 +15,33 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 2. Start the app
 
    ```bash
-    npm start
+   npm start
+
+   suggested to test on android
+      - Download expo add from play store
+      - scan the QR code from terminal after running npm start
+      - Make sure you are on same wifi on mobile and on your PC.
+
+      if above steps don't work then please download android emulator in vs code from extensions and follow below steps
+
+      -Press cltr + shift + p
+      -type emulator and press enter
+      -you will get the list of android emulator which you have download from extension click on that
+      - press a in ternimal and it will open the app in emulator
    ```
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Features I have Implimented
+   -Layout And UI
+      - Created custom UI components for the app, React Native & TypeScript JavaScript library for reusability.
+      - list of movies sorted in descending order of popularity.
+      - Displaying movie title, image, genre, cast, director, and a short description related to the movie in each information card.
+   - Default page load state
+      - Loading a total of only 20 movies for each year
+      - By default, when a user lands on the page, display a list of movies of the year 2012
+      - Implemented smooth scrolling behavior to load more movies as the user scrolls in any direction i.e load movies of previous year when user scrolls up and load               movies of next year when user scrolls down until the current year.
+      - Smooth Scrolling and inetraction
+   - Genre Filter
+      - Provide a filter UI that allows users to filter movies by genre.
+   - Code Quality
+       - Used React for making reusable components
+       - Used Typescript for enhanced type safety and code quality.
