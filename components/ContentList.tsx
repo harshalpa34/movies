@@ -1,6 +1,6 @@
 import { colors } from "@/constants/Colors";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -40,6 +40,23 @@ const loadingBar = {
   TOP: "TOP",
   BOTTOM: "BOTTOM",
 };
+
+const MoviesByYear = memo(
+  ({ item, movies }: { item: number; movies: MoviesWithYear }) => {
+    return (
+      <View style={contentStyles.mainWrapper} key={item.toString()}>
+        <View key={item.toString()} style={contentStyles.yearWrapper}>
+          <Text style={contentStyles.year}>{item}</Text>
+          <View style={contentStyles.contentWrapper}>
+            {movies[item].map((movie) => (
+              <MovieCard movie={movie} key={movie.id} />
+            ))}
+          </View>
+        </View>
+      </View>
+    );
+  }
+);
 
 const ContentList = ({ genre }: props) => {
   const [movies, setMovies] = useState<MoviesWithYear>({});
@@ -111,21 +128,6 @@ const ContentList = ({ genre }: props) => {
     );
   };
 
-  const MoviesByYear = ({ item }: { item: number }) => {
-    return (
-      <View style={contentStyles.mainWrapper} key={item.toString()}>
-        <View key={item.toString()} style={contentStyles.yearWrapper}>
-          <Text style={contentStyles.year}>{item}</Text>
-          <View style={contentStyles.contentWrapper}>
-            {movies[item].map((movie) => (
-              <MovieCard movie={movie} key={movie.id} />
-            ))}
-          </View>
-        </View>
-      </View>
-    );
-  };
-
   if (isError) {
     return (
       <View style={contentStyles.errorView}>
@@ -139,7 +141,7 @@ const ContentList = ({ genre }: props) => {
   return (
     <FlatList
       data={Object.keys(movies).map((year) => parseInt(year))}
-      renderItem={({ item }) => <MoviesByYear item={item} />}
+      renderItem={({ item }) => <MoviesByYear item={item} movies={movies} />}
       keyExtractor={(year) => year.toString()}
       onEndReached={loadMoreData}
       onEndReachedThreshold={0.5}

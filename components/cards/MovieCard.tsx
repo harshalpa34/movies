@@ -1,11 +1,11 @@
 import { colors } from "@/constants/Colors";
 import { Movie } from "@/types";
-import React from "react";
+import React, { memo } from "react";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
 
-const MovieCard = ({ movie }: { movie: Movie }) => {
+const MovieCard = memo(({ movie }: { movie: Movie }) => {
   return (
     <View style={movieCard.wrapper} key={movie.id}>
       <Image
@@ -24,7 +24,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
       </View>
     </View>
   );
-};
+});
 
 const movieCard = StyleSheet.create({
   wrapper: {
