@@ -30,7 +30,7 @@
       - press a in ternimal and it will open the app in emulator
    ```
 ## Node.
-   ### There is a common issue where tMDP (Api used in project) is blocked for certain users in India, so it it doesn't work try using VPN requies VPN!!!.
+   ### There is a common issue where tMDP (Api used in project) is blocked for certain users in India, so it it doesn't work try using VPN.
    
 #### sorry for the logo its little blurry.  
 
