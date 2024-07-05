@@ -31,7 +31,7 @@
    ```
 
 ## Features I have Implimented
-   -Layout And UI
+   - Layout And UI
       - Created custom UI components for the app, React Native & TypeScript JavaScript library for reusability.
       - list of movies sorted in descending order of popularity.
       - Displaying movie title, image, genre, cast, director, and a short description related to the movie in each information card.
