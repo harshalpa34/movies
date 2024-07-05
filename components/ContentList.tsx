@@ -1,16 +1,15 @@
 import { colors } from "@/constants/Colors";
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
-  Dimensions,
   FlatList,
-  Image,
-  ScrollView,
   StyleSheet,
   Text,
   View,
 } from "react-native";
+import MovieCard from "./cards/MovieCard";
+import { Movie } from "@/types";
 
 const BASE_URL = `https://api.themoviedb.org/3/discover/movie?api_key=2dca580c2a14b55200e784d157207b4d&sort_by=popularity.desc&page=1&vote_count.gte=100`;
 
@@ -21,25 +20,6 @@ const constructApiUrl = (genreId: number, year: number) => {
   }
   return url;
 };
-
-const windowWidth = Dimensions.get("window").width;
-
-interface Movie {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}
 
 interface MovieResponse {
   page: number;
@@ -131,20 +111,14 @@ const ContentList = ({ genre }: props) => {
     );
   };
 
-  const MobiesByYear = ({ item }: { item: number }) => {
+  const MoviesByYear = ({ item }: { item: number }) => {
     return (
       <View style={contentStyles.mainWrapper} key={item.toString()}>
         <View key={item.toString()} style={contentStyles.yearWrapper}>
           <Text style={contentStyles.year}>{item}</Text>
           <View style={contentStyles.contentWrapper}>
             {movies[item].map((movie) => (
-              <Image
-                key={movie.id}
-                source={{
-                  uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-                }}
-                style={contentStyles.contentBanner}
-              />
+              <MovieCard movie={movie} />
             ))}
           </View>
         </View>
@@ -165,7 +139,7 @@ const ContentList = ({ genre }: props) => {
   return (
     <FlatList
       data={Object.keys(movies).map((year) => parseInt(year))}
-      renderItem={({ item }) => <MobiesByYear item={item} />}
+      renderItem={({ item }) => <MoviesByYear item={item} />}
       keyExtractor={(year) => year.toString()}
       onEndReached={loadMoreData}
       onEndReachedThreshold={0.5}
@@ -203,13 +177,6 @@ const contentStyles = StyleSheet.create({
     gap: 22,
     justifyContent: "center",
     alignItems: "center",
-  },
-  contentBanner: {
-    borderColor: "white",
-    width: windowWidth * 0.4,
-    aspectRatio: 3 / 5,
-    borderRadius: 3,
-    backgroundColor: colors.headerBg,
   },
 
   loaderWrapper: {
