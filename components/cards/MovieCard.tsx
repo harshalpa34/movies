@@ -55,7 +55,7 @@ const movieCard = StyleSheet.create({
     color: "white",
     fontSize: 11,
     fontFamily: "Poppins",
-    opacity: 0.65
+    opacity: 0.65,
   },
 });
 
