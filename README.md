@@ -1,8 +1,8 @@
 # Welcome to Movie Flex (Fancode)👋
 
 ## Tech Stack Used
-   # React Native
-   # Typescript
+   ### React Native
+   ### Typescript
    
 ## Get started
 
