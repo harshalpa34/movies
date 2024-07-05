@@ -29,8 +29,9 @@
       -you will get the list of android emulator which you have download from extension click on that
       - press a in ternimal and it will open the app in emulator
    ```
+ ###### sorry for the logo its little blurry.  
 
-## Features I have Implimented
+## Features I have Implimented   
    - Layout And UI
       - Created custom UI components for the app, React Native & TypeScript JavaScript library for reusability.
       - list of movies sorted in descending order of popularity.
